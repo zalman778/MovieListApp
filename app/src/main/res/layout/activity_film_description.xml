@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@null"
+    android:baselineAligned="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:transitionName="wrapper"
+        android:id="@+id/rootFilmWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:background="@drawable/film_wrapper_background_corners"
+        android:padding="10dp"
+        android:layout_gravity="bottom">
+
+
+
+        <ImageView
+            android:transitionName="filmImage"
+            tools:background="@color/colorAccent"
+            android:id="@+id/shortFilmImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            >
+        </ImageView>
+
+        <TextView
+            android:id="@+id/tvFilmCaption"
+            android:transitionName="filmCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            app:layout_constraintTop_toBottomOf="@id/shortFilmImage"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+
+            tools:text="Caption"
+            />
+
+        <com.nex3z.flowlayout.FlowLayout
+            android:id="@+id/shortFilmGenresWrapper"
+            android:transitionName="filmGenres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            app:flChildSpacing="2dp"
+            app:flChildSpacingForLastRow="align"
+            app:flRowSpacing="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFilmCaption"
+            tools:text="genres..."
+            >
+
+        </com.nex3z.flowlayout.FlowLayout>
+
+        <LinearLayout
+            android:id="@+id/ratingLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@id/shortFilmGenresWrapper"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            >
+            <TextView
+                android:id="@+id/ratingText"
+
+                tools:text="10.0"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+            </TextView>
+
+            <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                android:id="@+id/ratingBar"
+
+                android:isIndicator="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="20dp"
+                style="@style/Widget.MaterialRatingBar.RatingBar" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvFilmDirector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            tools:text="Director / ..."
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ratingLinearLayout"
+            />
+
+        <TextView
+            android:id="@+id/tvFilmCastCaption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:text="Actors"
+            android:layout_marginTop="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFilmDirector"
+            />
+
+        <HorizontalScrollView
+            android:id="@+id/castWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:textColor="#000000"
+            android:layout_marginTop="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFilmCastCaption"
+            >
+
+            <LinearLayout
+                android:id="@+id/castWrapperInner"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                >
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/tvFilmOverviewCaption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:translationY="150dp"
+            android:text="Introduction"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFilmCastCaption"
+            />
+
+        <TextView
+            android:id="@+id/tvFilmOverview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:alpha="0.0"
+            android:translationY="1000dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFilmOverviewCaption"
+            tools:text="overview..."/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

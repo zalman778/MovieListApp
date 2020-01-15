@@ -1,0 +1,5 @@
+Jobs can be arranged into parent-child hierarchies where cancellation of parent lead to an immediate cancellation of all its children. Failure or cancellation of a child with an exception other than CancellationException immediately cancels its parent.
+
+Cancellation is propagated from parent to child. A job’s cancellation causes its children to cancel, while a child’s cancellation (when it isn’t due to a failure) won’t affect its parent.
+
+Completion due to a successful or due to a failure is propagated from child to parent. A parent’s successful completion is conditioned by all of its children’s successful completion, and a child’s failure is notified to its parent which may cause it to cancel depending on its policy.

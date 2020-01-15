@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+    <HorizontalScrollView
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/horizontal_scroll_view"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:measureAllChildren="false"
+        android:scrollbars="none" >
+
+        <LinearLayout
+
+            android:id="@+id/inner_linear_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:clipToPadding="false"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:translationX="2dp"
+        tools:itemCount="5"
+        tools:listitem="@layout/carousel_item_layout"
+        android:id="@+id/films_carousel_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:gravity="bottom"
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/btnOpen"
+        android:layout_height="60dp"
+        android:layout_width="260dp"
+        android:text="open"
+        android:translationY="-10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:roundedCorners="true"
+        app:bootstrapBrand="primary"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
